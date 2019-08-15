@@ -54,14 +54,14 @@ No global variables, and large objects (e.g., sequences and matrices) should be 
 12.	LCS.x and ED.x should exhibit behavior identical to their LIB/area51 benchmarks.
 Hints
 •	Check out:
-•	LIB/tcpp/matrix.h # matrices
-•	LIB/tcpp/genalg.h # fsu::Max
+ LIB/tcpp/matrix.h # matrices
+ LIB/tcpp/genalg.h # fsu::Max
 •	Note that fsu::Matrix < T > has some useful methods (aside from the "double" bracket operator[][]) - particularly Dump(std::ostream& os , size_t width).
 •	When taking the Min of three things, we suggest coding it directly using this logic:
-•	// Min (A,B,C)
-•	val = A;
-•	if (B < val) val = B;
-•	if (C < val) val = C;
+ // Min (A,B,C)
+ val = A;
+ if (B < val) val = B;
+ if (C < val) val = C;
 This means that A wins ties with either B or C and B wins ties with C. This will be helpful in getting consistent results in the parent matrix P. Using operators:
 Min (A,B,C) = (A <= (x = (B <= C ? B : C)) ? A : x); // <-- this
 Min (A,B,C) = (A < (x = (B < C ? B : C)) ? A : x);   // <-- NOT this
